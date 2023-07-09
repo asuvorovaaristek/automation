@@ -19,11 +19,7 @@ ${age}    30
     Append To List    ${fruits}    Pear    Coconut
     Log    ${fruits}
     Create Dictionary    &{person}
-#    ${keys}    Get Dictionary Keys    ${person}
-#    Log    ${keys}
-#    ${keyvalue}    Get Dictionary Values    ${person}
-#    Log    ${keyvalue}
-#    ${item}    Get From Dictionary    ${person}    name
+
     Set To Dictionary    ${person}    name=Nastya    age=38    city=Vilnius
     Log    ${person}
     Create List    ${favorite}
