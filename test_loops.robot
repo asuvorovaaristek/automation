@@ -4,6 +4,7 @@ Library         OperatingSystem
 Library         BuiltIn
 Library         Collections
 Library         String
+Resource        GlobalKeywords.robot
 
 *** Variables ***
 ${name}    John Doe
@@ -27,27 +28,32 @@ ${do}    True
 #    Set Test Variable    ${letter}    give us next letter in alphabet
 #    END
 
-hometask1
-    FOR   ${item}    IN    @{fruits1}
-        Append To List     ${fruits}    ${item}
-    END
-    Log    ${fruits}
+#hometask1
+#    FOR   ${item}    IN    @{fruits1}
+#        Append To List     ${fruits}    ${item}
+#    END
+#    Log    ${fruits}
+#
+#hometask2
+#    FOR    ${item}    IN    @{alph}
+#        Exit For Loop If    '${item}' == 'q'
+#        WHILE    '${item}' != 'q'
+#            Log To Console    ${item}
+#            BREAK
+#        END
+#    END
 
-hometask2
-    FOR    ${item}    IN    @{alph}
-        Exit For Loop If    '${item}' == 'q'
-        WHILE    '${item}' != 'q'
-            Log To Console    ${item}
-            BREAK
-        END
-    END
+#hometask3
+#    Append To List    ${fruits}    pineapple    coconut     pear     lemon     plum    apricot    mango
+#    ${E}    Create List
+#    FOR    ${item}    IN    @{fruits}
+#        ${status}    Run Keyword And Return Status    Should Contain    ${item}    e
+#        Run Keyword If    ${status} == True    Append To List    ${E}    ${item}
+#    END
+#    Log To Console    ${E}
+#    Log    ${E}
 
 hometask3
     Append To List    ${fruits}    pineapple    coconut     pear     lemon     plum    apricot    mango
     ${E}    Create List
-    FOR    ${item}    IN    @{fruits}
-        ${status}    Run Keyword And Return Status    Should Contain    ${item}    e
-        Run Keyword If    ${status} == True    Append To List    ${E}    ${item}
-    END
-    Log To Console    ${E}
-    Log    ${E}
+    Get Item From List And Log    ${E}
