@@ -160,8 +160,6 @@ hometask3
     Append To List    ${fruits}    pineapple    coconut     pear     lemon     plum    apricot    mango
     ${E}    Create List
     Get Item From List And Log    ${E}
-
-
 *** Settings ***
 Library         SeleniumLibrary
 Library         OperatingSystem
