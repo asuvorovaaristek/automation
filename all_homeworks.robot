@@ -185,7 +185,7 @@ ${browser}    edge
     Click Element    //*[@id="suggestion-search-button"][@type="submit"]
     Page Should Contain Element    (//*[@class ="ipc-metadata-list-summary-item__t"])[1]
     Click Link    (//*[@class ="ipc-metadata-list-summary-item__t"])[1]
-    ${title}    Get Text    //*[@data-testid ="hero__pageTitle"]
+    ${title}    Get PAST    //*[@data-testid ="hero__pageTitle"]
     ${rating}    Get Text    (//*[@data-testid="hero-rating-bar__aggregate-rating__score"])[1]
     Append To File    My_favourite_films.txt    \r${title}=${rating}\n
     END
@@ -223,6 +223,25 @@ ${browser}    edge
     END
     ${sorted_dict}    Sort Dictionary By Values    ${rating_dict}
     Log To Console    ${sorted_dict}
+
+
+
+*** Settings ***
+Library         SeleniumLibrary
+Library         OperatingSystem
+Library         BuiltIn
+Library         Collections
+Library         String
+
+*** Keywords ***
+Get Item From List And Log
+    [Arguments]    ${E}
+    FOR    ${item}    IN    @{fruits}
+        ${status}    Run Keyword And Return Status    Should Contain    ${item}    e
+        Run Keyword If    ${status} == True    Append To List    ${E}    ${item}
+    END
+    Log To Console    ${E}
+    Log    ${E}
 
 
 
