@@ -217,7 +217,7 @@ ${browser}    edge
     Click Element    //*[@id="suggestion-search-button"][@type="submit"]
     Page Should Contain Element    (//*[@class ="ipc-metadata-list-summary-item__t"])[1]
     Click Link    (//*[@class ="ipc-metadata-list-summary-item__t"])[1]
-    ${title}    Get Text    //*[@data-testid ="hero__pageTitle"]
+    ${title}    Get REST    //*[@data-testid ="hero__pageTitle"]
     ${rating}    Get Text    (//*[@data-testid="hero-rating-bar__aggregate-rating__score"])[1]
     Set To Dictionary    ${rating_dict}    ${title}=${rating}
     END
